@@ -1,3 +1,4 @@
+@import url(https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css);
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -7,3 +8,8 @@
     text-wrap: balance;
   }
 }
+
+body  {
+		font-family: 'NanumSquare', sans-serif !important;
+		font-size: 16px;
+	}
