@@ -1,6 +1,7 @@
+import { colors } from '@/style/colors';
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+    <main className='flex min-h-screen flex-col items-center justify-between p-24'>
       <div>16px 글자 (none)</div>
       <div className='font-bold'>16px bold 글자 (font-bold)</div>
       <div className='font-extrabold'>16px extrabold 글자 (font-extrabold)</div>
