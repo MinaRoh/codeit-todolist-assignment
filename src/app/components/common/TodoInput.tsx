@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 interface InputProps {
   text: string;
   detailPage?: boolean;
-  additionalClasses?: string; // 추가된다면 line-through
+  additionalClasses?: string; // 추가된다면 line-through, text-color 등.
 }
             
 const TodoInput = ({ text, detailPage, additionalClasses = '' }: InputProps) => {

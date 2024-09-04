@@ -3,5 +3,5 @@
 }
 
 .input-detail {
-  @apply underline font-bold text-xl;
+  @apply underline font-bold text-xl w-auto;
 }
