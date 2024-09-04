@@ -1,0 +1,16 @@
+
+.todo-contianer-base {
+  @apply flex items-center gap-4 w-auto border-slate-900;
+}
+
+.todo-container-list {
+  @apply px-3 py-2 border-2 rounded-full;
+}
+
+.todo-container-detail {
+  @apply px-[84px] py-4 border-2 rounded-3xl justify-center;
+}
+
+.todo-container-addtodo {
+  @apply w-full pl-5 px-6 py-4 border rounded-full drop-shadow-[4px_4px_rgb(15,23,42)] bg-slate-100 ;
+}

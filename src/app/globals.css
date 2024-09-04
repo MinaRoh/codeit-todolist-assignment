@@ -9,8 +9,9 @@
   }
 }
 
-@import '../styles/buttons.css';
-@import '../styles/inputs.css';
+@import '../styles/button.css';
+@import '../styles/input.css';
+@import '../styles/container.css';
 
 body  {
 		font-family: 'NanumSquare', sans-serif !important;
