@@ -10,7 +10,7 @@
 }
 
 @import '../styles/buttons.css';
-
+@import '../styles/inputs.css';
 
 body  {
 		font-family: 'NanumSquare', sans-serif !important;
