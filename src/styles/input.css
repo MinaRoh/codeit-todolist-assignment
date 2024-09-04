@@ -1,0 +1,7 @@
+.input-base {
+  @apply border-none outline-none bg-transparent w-full;
+}
+
+.input-detail {
+  @apply underline font-bold text-xl w-auto;
+}
