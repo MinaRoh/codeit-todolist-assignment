@@ -1,11 +1,21 @@
+import Button from './components/common/Button';
+import plus_variant from '../../public/icons/plus_variant/Property 1=plus.svg';
+import plus from '../../public/icons/plus/Property 1=Variant2.svg';
+import check from '../../public/icons/check/check.svg';
+import edit from '../../public/icons/edit/edit.svg';
+
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div>16px 글자 (none)</div>
-      <div className='font-bold'>16px bold 글자 (font-bold)</div>
-      <div className='font-extrabold'>16px extrabold 글자 (font-extrabold)</div>
-      <div className='font-bold text-lg'>18px bold 글자 text-lg (font-bold text-lg)</div>
-      <div className='font-bold text-xl'>20px bold 글자 text-xl (font-bold text-xl)</div>
+      <div className='flex flex-col gap-4 items-center justify-start'>
+        
+        <Button text='추가하기' icon={plus_variant} variant='violet' shadow/>
+        <Button text='수정완료' icon={check} variant='lime' shadow/>
+        <Button icon={plus_variant} variant='violet' shadow/>
+        <Button icon={plus} variant='slate'/>
+        <Button icon={edit} variant='dark'/>
+
+      </div>
     </main>
   );
 } 
