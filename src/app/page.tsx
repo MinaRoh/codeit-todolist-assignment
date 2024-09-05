@@ -8,14 +8,20 @@ import checkbox_done from '../../public/icons/checkbox_done/Property 1=Frame 261
 import Image from 'next/image';
 import TodoInput from './components/common/TodoInput';
 import TodoContainer from './components/common/TodoContainer';
+import TodoListContainer from './components/(todos)/TodoListContainer';
+import AddTodo from './components/(todos)/AddTodo';
 
-  
-export default function Home() {
+
+export default function TodoListPage() {
   return (
-    <main className="flex min-h-screen min-w-screen flex-col items-center justify-between p-24">
-      <div className='flex flex-col min-w-screen w-full gap-4 justify-start'>
+    <main className='flex min-h-screen min-w-screen flex-col items-center p-4 gap-6 bg-orange-200'>
+        <AddTodo />
+        <TodoListContainer />
+    </main>
+  );
+} 
 
-        <TodoContainer type='list' additionalClasses='bg-white'>
+{/* <TodoContainer type='list' additionalClasses='bg-white'>
           <Image src={checkbox} alt='check' />
           <TodoInput text='비타민 챙겨 먹기' detailPage={false} />
         </TodoContainer>
@@ -45,11 +51,4 @@ export default function Home() {
         <TodoContainer type='addtodo' additionalClasses='bg-slate-100'>
           <TodoInput
             text='길이가 길어질 경우 다음과 같이 계속 오른쪽으로 갑니다... 길이가 길어질 경우 다음과 같이 계속 오른쪽으로 갑니다... 길이가 길어질 경우 다음과 같' />
-        </TodoContainer>
-
-
-
-      </div>
-    </main>
-  );
-} 
+        </TodoContainer> */}
