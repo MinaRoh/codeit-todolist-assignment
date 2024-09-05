@@ -2,7 +2,7 @@ import Image from 'next/image';
 import TodoLabel from '../../../../public/images/todo/todo.svg';
 import DoneLabel from '../../../../public/images/done/done.svg';
 import EmptyTodo_small from '../../../../public/images/empty/todo_small/Type=todo, Size=Small.svg';  
-import EmptyDone_small from '../../../../public/images/empty/done_small/Type=done, Size=Small.svg';  
+import EmptyDone_small from '../../../../public/images/empty/done_small/Type=Done, Size=Small.svg';
 import Todo from './Todo';
 
 
@@ -26,7 +26,7 @@ const TodoListContainer = () => {
         </div>
         <div className='flex flex-col items-center'>
           <Image src={EmptyDone_small} alt='Done list is empty' />
-          <p className='text-slate-400 font-bold'>아직 다 한 일이 없어요.<br/>해야 할 일을 체크해보세요!</p>
+          <p className='text-slate-400 font-bold text-center'>아직 다 한 일이 없어요.<br/>해야 할 일을 체크해보세요!</p>
         </div>
       </div>
     </div>
