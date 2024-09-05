@@ -21,7 +21,7 @@ const Button = ({ text, icon, variant = 'violet', onClick, shadow, additionalCla
 
   return (
     <button className={buttonClasses} onClick={onClick}>
-      {icon && <Image src={icon} alt="icon" />}
+      {icon && <Image src={icon} alt='button icon image' />}
       {text}
     </button>
   );

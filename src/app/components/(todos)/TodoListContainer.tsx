@@ -30,10 +30,22 @@ const TodoListContainer = () => {
     setTodosToDo(todos?.filter((todo: any) => !todo.isCompleted));
     setTodosDone(todos?.filter((todo: any) => todo.isCompleted));
   }, [todos]);
-
+  
   const TodoListInfo = [
-    {imageLabel: TodoLabel, altText: "Todo list", todos: todosToDo, emptyImage: EmptyTodo_small},
-    {imageLabel: DoneLabel, altText: "Done list", todos: todosDone, emptyImage: EmptyDone_small},
+    {
+      imageLabel: TodoLabel,
+      altText: 'Todo list',
+      todos: todosToDo,
+      emptyImage: EmptyTodo_small,
+      emptyMsg: '할 일이 없어요.\nTodo를 새롭게 추가해주세요!'
+    },
+    {
+      imageLabel: DoneLabel,
+      altText: 'Done list',
+      todos: todosDone,
+      emptyImage: EmptyDone_small,
+      emptyMsg: '아직 다 한 일이 없어요.\n해야 할 일을 체크해보세요!'
+    },
     ];
   
 
