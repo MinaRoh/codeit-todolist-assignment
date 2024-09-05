@@ -1,12 +1,10 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
-
-const inter = Inter({ subsets: ["latin"] });
+import type { Metadata } from 'next';
+import './globals.css';
+import Gnb from '../app/components/GNB';
 
 export const metadata: Metadata = {
-  title: "Todolist",
-  description: "Codeit todolist assignment",
+  title: 'Do it',
+  description: '코드잇 스프린트 과제테스트',
 };
 
 export default function RootLayout({
@@ -15,8 +13,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="kr">
-      <body className={inter.className}>{children}</body>
+    <html lang='kr'>
+      <body>
+        <Gnb/>
+        {children}
+      </body>
     </html>
   );
 }
