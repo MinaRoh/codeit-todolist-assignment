@@ -1,6 +1,6 @@
 
 .btn-base {
-  @apply flex items-center justify-center font-bold rounded-full border-solid border-2 m-4 gap-1 p-4;
+  @apply flex min-w-14 min-h-14 items-center justify-center font-bold rounded-full border-solid border-2 ;
 }
 
 .btn-long {

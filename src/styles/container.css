@@ -1,6 +1,6 @@
 
 .todo-contianer-base {
-  @apply flex items-center gap-4 w-auto border-slate-900;
+  @apply flex items-center gap-4 w-auto border-slate-900 h-14;
 }
 
 .todo-container-list {
