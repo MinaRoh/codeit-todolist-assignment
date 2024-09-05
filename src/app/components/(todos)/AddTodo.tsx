@@ -6,7 +6,7 @@ import plus_variant from '../../../../public/icons/plus_variant/Property 1=plus.
 
 const AddTodo = () => {
   return (
-    <div className='flex justify-center w-full gap-2 bg-yellow-200'>
+    <div className='flex justify-center items-center w-full gap-2 bg-yellow-200'>
           <TodoContainer type='addtodo' additionalClasses='bg-slate-100'>
             <TodoInput text='할 일을 입력해 주세요' additionalClasses='text-slate-500'/>
           </TodoContainer>
