@@ -1,21 +1,11 @@
-import Button from './components/common/Button';
-import plus_variant from '../../public/icons/plus_variant/Property 1=plus.svg';
-import plus from '../../public/icons/plus/Property 1=Variant2.svg';
-import check from '../../public/icons/check/check.svg';
-import edit from '../../public/icons/edit/edit.svg';
-import checkbox from '../../public/icons/checkbox/Property 1=Default.svg';
-import checkbox_done from '../../public/icons/checkbox_done/Property 1=Frame 2610233.svg';
-import Image from 'next/image';
-import TodoInput from './components/common/TodoInput';
-import TodoContainer from './components/common/TodoContainer';
 import TodoListContainer from './components/(todos)/TodoListContainer';
-import AddTodo from './components/(todos)/AddTodo';
+import AddTodoContainer from './components/(todos)/AddTodoContainer';
 
 
 export default function TodoListPage() {
   return (
     <main className='flex min-h-screen min-w-screen flex-col items-center p-4 gap-6 bg-orange-200'>
-        <AddTodo />
+        <AddTodoContainer />
         <TodoListContainer />
     </main>
   );

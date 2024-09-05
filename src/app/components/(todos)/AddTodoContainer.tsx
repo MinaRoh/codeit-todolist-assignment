@@ -4,7 +4,7 @@ import TodoInput from '../common/TodoInput'
 import plus_variant from '../../../../public/icons/plus_variant/Property 1=plus.svg';
 
 
-const AddTodo = () => {
+const AddTodoContainer = () => {
   return (
     <div className='flex justify-center items-center w-full gap-2 bg-yellow-200'>
           <TodoContainer type='addtodo' additionalClasses='bg-slate-100'>
@@ -14,4 +14,4 @@ const AddTodo = () => {
         </div>
   )
 }
-export default AddTodo;
+export default AddTodoContainer;
