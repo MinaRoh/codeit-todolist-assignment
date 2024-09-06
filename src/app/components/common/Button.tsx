@@ -5,7 +5,7 @@ interface ButtonProps {
   type?: 'submit';
   text?: string;
   icon: StaticImageData;
-  variant?: 'violet' | 'lime' | 'slate' | 'dark'; 
+  variant?: 'violet' | 'lime' | 'slate' | 'dark' | 'rose'; 
   shadow?: boolean;
   onClick?: () => void;
   additionalClasses?: string;

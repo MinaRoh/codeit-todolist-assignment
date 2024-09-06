@@ -13,7 +13,9 @@ const config: Config = {
         'tablet': '768px', // 768  768~1023
         'desktop': '1024px', // 1024  1024~1920
         'desktop-fhd': '1920px', // 1920 이상
-
+      },
+      backgroundImage: {
+        'memo': "url('/images/memo/memo.png')"
       },
     },
   },
