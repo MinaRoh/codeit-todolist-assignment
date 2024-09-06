@@ -1,21 +1,17 @@
-import Button from './components/common/Button';
-import plus_variant from '../../public/icons/plus_variant/Property 1=plus.svg';
-import plus from '../../public/icons/plus/Property 1=Variant2.svg';
-import check from '../../public/icons/check/check.svg';
-import edit from '../../public/icons/edit/edit.svg';
-import checkbox from '../../public/icons/checkbox/Property 1=Default.svg';
-import checkbox_done from '../../public/icons/checkbox_done/Property 1=Frame 2610233.svg';
-import Image from 'next/image';
-import TodoInput from './components/common/TodoInput';
-import TodoContainer from './components/common/TodoContainer';
+import TodoListContainer from './components/(todos)/TodoListContainer';
+import AddTodoContainer from './components/(todos)/AddTodoContainer';
 
-  
-export default function Home() {
+
+export default function TodoListPage() {
   return (
-    <main className="flex min-h-screen min-w-screen flex-col items-center justify-between p-24">
-      <div className='flex flex-col min-w-screen w-full gap-4 justify-start'>
+    <main className='flex min-h-screen min-w-screen flex-col items-center p-4 gap-6 desktop:px-28 desktop-fhd:px-[360px] bg-gray-50'>
+        <AddTodoContainer />
+        <TodoListContainer />
+    </main>
+  );
+} 
 
-        <TodoContainer type='list' additionalClasses='bg-white'>
+{/* <TodoContainer type='list' additionalClasses='bg-white'>
           <Image src={checkbox} alt='check' />
           <TodoInput text='비타민 챙겨 먹기' detailPage={false} />
         </TodoContainer>
@@ -45,11 +41,4 @@ export default function Home() {
         <TodoContainer type='addtodo' additionalClasses='bg-slate-100'>
           <TodoInput
             text='길이가 길어질 경우 다음과 같이 계속 오른쪽으로 갑니다... 길이가 길어질 경우 다음과 같이 계속 오른쪽으로 갑니다... 길이가 길어질 경우 다음과 같' />
-        </TodoContainer>
-
-
-
-      </div>
-    </main>
-  );
-} 
+        </TodoContainer> */}

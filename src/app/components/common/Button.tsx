@@ -2,6 +2,7 @@ import React from 'react';
 import Image, { StaticImageData } from 'next/image';
 
 interface ButtonProps {
+  type?: 'submit';
   text?: string;
   icon: StaticImageData;
   variant?: 'violet' | 'lime' | 'slate' | 'dark'; 
@@ -10,7 +11,7 @@ interface ButtonProps {
   additionalClasses?: string;
 }
 
-const Button = ({ text, icon, variant = 'violet', onClick, shadow, additionalClasses = '' }: ButtonProps) => {
+const Button = ({ type, text, icon, variant = 'violet', onClick, shadow, additionalClasses = '' }: ButtonProps) => {
   const buttonClasses = [
     'btn-base',
     `btn-${variant}`,
@@ -20,8 +21,8 @@ const Button = ({ text, icon, variant = 'violet', onClick, shadow, additionalCla
     ].join(' ');
 
   return (
-    <button className={buttonClasses} onClick={onClick}>
-      {icon && <Image src={icon} alt="icon" />}
+    <button type={type} className={buttonClasses} onClick={onClick}>
+      {icon && <Image src={icon} alt='button icon image' />}
       {text}
     </button>
   );
