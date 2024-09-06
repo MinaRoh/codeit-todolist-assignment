@@ -16,7 +16,7 @@ interface TodoListInfo {
 const TodoList = ({imageLabel, altText, todos, emptyImage, emptyMsg}: TodoListInfo) => {
 
   return (
-    <div className='flex flex-col w-full bg-pink-200 gap-4'>
+    <div className='flex flex-col w-full gap-4'>
       {/* 라벨영역 */}
       <div className='flex justify-start'>
           <Image src={imageLabel} alt={altText} />

@@ -4,7 +4,7 @@ import AddTodoContainer from './components/(todos)/AddTodoContainer';
 
 export default function TodoListPage() {
   return (
-    <main className='flex min-h-screen min-w-screen flex-col items-center p-4 gap-6 bg-orange-200'>
+    <main className='flex min-h-screen min-w-screen flex-col items-center p-4 gap-6 desktop:px-28 desktop-fhd:px-[360px] bg-gray-50'>
         <AddTodoContainer />
         <TodoListContainer />
     </main>

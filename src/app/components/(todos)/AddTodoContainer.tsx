@@ -35,7 +35,7 @@ const AddTodoContainer = () => {
 
 
   return (
-    <form onSubmit={todoSubmit} className='flex justify-center items-center w-full gap-2 bg-yellow-200'>
+    <form onSubmit={todoSubmit} className='flex justify-center items-center w-full gap-2 px-6'>
       <TodoContainer type='addtodo' additionalClasses='bg-slate-100'>
         <TodoInput text={inputText} additionalClasses='text-slate-500' onChange={onChange} />
       </TodoContainer>

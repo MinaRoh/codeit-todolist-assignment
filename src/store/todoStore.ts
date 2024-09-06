@@ -20,7 +20,7 @@ const useTodoStore = create<TodoStore>()((set) => ({
   todos: [],
   getTodoStore: async () => {
     try {
-      const todos = await getTodo({ pageNum: 1, pageSize: 10 });
+      const todos = await getTodo({ pageNum: 1, pageSize: 100 });
       const sortedTodos = todos.sort((a: { id: number; }, b: { id: number; }) => a.id - b.id); // id 작은것부터 보이도록
       set({ todos: sortedTodos });
     } catch (error) {

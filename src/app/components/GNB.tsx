@@ -17,7 +17,7 @@ const Gnb = () => {
         </div>
 
         {/* 태블릿, 데스크탑 크기에서는 큰 로고 (텍스트 포함) 표시, 데스크탑에서 크기 및 여백 조절 */}
-        <div className='hidden tablet:block w-[151px] desktop:w-64 desktop:pl-20'>
+        <div className='hidden tablet:block w-[151px] h-[40px] desktop:w-64 desktop:mx-16 desktop-fhd:mx-[320px]'>
           <Image
             src={LogoWithText}
             alt='Todolist Logo Large'
