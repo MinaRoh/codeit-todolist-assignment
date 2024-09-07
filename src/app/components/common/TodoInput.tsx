@@ -6,11 +6,12 @@ interface InputProps {
   text: string;
   detailPage?: boolean;
   additionalClasses?: string; // 추가된다면 line-through, text-color 등.
+  readOnly?: boolean;
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   onClick?: (event: React.MouseEvent<HTMLInputElement>) => void;
 }
 
-const TodoInput = ({ text, detailPage, additionalClasses = '', onChange }: InputProps) => {
+const TodoInput = ({ text, detailPage, additionalClasses = '', readOnly, onChange }: InputProps) => {
   const [inputValue, setInputValue] = useState(text); // 기존에 입력되어있던 text를 기본값으로
 
   useEffect(() => {
@@ -37,7 +38,7 @@ const TodoInput = ({ text, detailPage, additionalClasses = '', onChange }: Input
     ].join(' ');
 
   return (
-    <input type='text' value={inputValue} className={todoInputClasses} onChange={onTodoInputChange} onClick={onClick}/>
+    <input type='text' value={inputValue} className={todoInputClasses} onChange={onTodoInputChange} onClick={onClick} readOnly={readOnly} />
   );
 };
 

@@ -1,4 +1,4 @@
-import { EditedTodoProps } from '@/store/todoStore';
+import { UpdateTodoProps } from '@/store/todoStore';
 
 const BASE_URL = `${process.env.NEXT_PUBLIC_API_URL}/${process.env.NEXT_PUBLIC_TENANT_ID}`;
 
@@ -51,7 +51,7 @@ export const getTodoDetail = async (itemId: number) => {
   }
 }
 
-export const updateTodo = async (itemId: number, updatedTodo: EditedTodoProps) => {
+export const updateTodo = async (itemId: number, updatedTodo: UpdateTodoProps) => {
   try {
     const res = await fetch(`${BASE_URL}/items/${itemId}`, {
       method: 'PATCH',
