@@ -14,7 +14,7 @@ export const getTodo = async ({ pageNum = 1, pageSize = 10 }) => {
   } catch (err) {
     console.error(err);
   }
-}
+};
 
 export const addTodo = async (todo: string) => {
   try {
@@ -33,7 +33,7 @@ export const addTodo = async (todo: string) => {
   } catch (err) {
     console.error(err);
   }
-}
+};
 
 export const getTodoDetail = async (itemId: number) => {
   try {
@@ -46,10 +46,10 @@ export const getTodoDetail = async (itemId: number) => {
     }
     return res.json();
 
-  } catch (error) {
-    console.error(error);
+  } catch (err) {
+    console.error(err);
   }
-}
+};
 
 export const updateTodo = async (itemId: number, updatedTodo: UpdateTodoProps) => {
   try {
@@ -66,7 +66,21 @@ export const updateTodo = async (itemId: number, updatedTodo: UpdateTodoProps) =
     }
     return res.json();
 
-  } catch (error) {
-    console.error(error);
+  } catch (err) {
+    console.error(err);
   }
-}
+};
+
+export const deleteTodo = async (itemId: number) => {
+  try {
+    const res = await fetch(`${BASE_URL}/items/${itemId}`, {
+      method: 'DELETE',
+    });
+    if (!res.ok) {
+      throw new Error(`res status: ${res.status}`);
+    }
+    return res.json();
+  } catch (err) {
+    console.error(err);
+  }
+};

@@ -1,4 +1,4 @@
-import { addTodo, getTodo, getTodoDetail, updateTodo } from '@/app/apis/todoApi';
+import { addTodo, deleteTodo, getTodo, getTodoDetail, updateTodo } from '@/app/apis/todoApi';
 import { create } from 'zustand'
 
 export interface TodoProps extends EditedTodoProps {
@@ -21,10 +21,12 @@ type TodoStore = {
   todos: TodoProps[];
   todoDetail: TodoProps;
   getTodoStore: () => Promise<void>;
-  getTodoDetailStore: (todoId: number) => Promise<void>;
+  getTodoDetailStore: (id: number) => Promise<void>;
   addTodoStore: (name: string) => Promise<void>;
   updateTodoStore: (id: number, updatedTodo: EditedTodoProps) => Promise<void>;
   updateTodoIsCompletedStore: (id: number, isCompleted: boolean) => Promise<void>;
+  deleteTodoStore: (id: number) => Promise<void>;
+
 
 }
 
@@ -50,9 +52,9 @@ const useTodoStore = create<TodoStore>()((set) => ({
     }
   },
   /** todolist 전체를 서버에 요청해 todos, todosToDo, todosDone에 저장 */
-  getTodoDetailStore: async (todoId: number) => {
+  getTodoDetailStore: async (id: number) => {
     try {
-      const resJson = await getTodoDetail(todoId);
+      const resJson = await getTodoDetail(id);
       const { tenantId, ...todoDetail } = resJson; // tenantId 제외하고 newTodo에 저장
 
       set({ todoDetail });
@@ -101,6 +103,17 @@ const useTodoStore = create<TodoStore>()((set) => ({
       })
     } catch (error) {
       console.error('Error editing todo:', error);
+    }
+  },
+  deleteTodoStore: async (id: number) => {
+    try {
+      await deleteTodo(id);
+      set((state) => {
+        const updatedTodos = state.todos.filter((todo) => todo.id !== id); // 해당하는 아이디를 제외하고 나머지만 저장
+        return { todos: updatedTodos }
+      });
+    } catch (error) {
+      console.error('Error deleting todos:', error);
     }
   },
 }));

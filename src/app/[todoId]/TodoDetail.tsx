@@ -18,9 +18,9 @@ const TodoDetail = ({todoId}:{todoId:number}) => {
   const [todoDetail, setTodoDetail] = useState<EditedTodoProps>(); // id로 얻어온 기존 todo detail
   const [editedTodoDetail, setEditedTodoDetail] = useState<EditedTodoProps>({}as EditedTodoProps); // 수정된 todo detail
 
-  const { todos, updateTodoStore } = useTodoStore((state) => ({
-    todos: state.todos,
+  const { updateTodoStore, deleteTodoStore } = useTodoStore((state) => ({
     updateTodoStore: state.updateTodoStore,
+    deleteTodoStore: state.deleteTodoStore,
   }));
   
   useEffect(() => {
@@ -76,14 +76,26 @@ const TodoDetail = ({todoId}:{todoId:number}) => {
         window.location.pathname = '/';
       } catch (error) {
         console.error('Error updating todo:', error);
-        alert('저장 중 오류가 발생했습니다. 다시 시도해 주세요!');
+        alert('할 일 저장 중 오류가 발생했습니다. 다시 시도해 주세요!');
+        window.location.reload();
+      }
+    } else;
+  }
+
+  const onDeleteBtnClick = async () => {
+    if (window.confirm('이 할 일을 삭제할까요?')) {
+      try {
+        await deleteTodoStore(todoId);
+        alert('삭제되었습니다!');
+        window.location.pathname = '/';
+      } catch (error) {
+        console.error('Error deleting todo:', error);
+        alert('할일 삭제 중 오류가 발생했습니다. 다시 시도해 주세요!');
         window.location.reload();
       }
       
-    } else {}
+    } else;
   }
-
-  const onDeleteBtnClick = () => { }
 
 
 
