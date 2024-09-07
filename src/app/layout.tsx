@@ -14,7 +14,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='kr'>
-      <body>
+      <body className='bg-gray-50'>
         <Gnb/>
         {children}
       </body>

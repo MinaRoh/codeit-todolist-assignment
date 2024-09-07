@@ -96,7 +96,7 @@ const TodoDetail = ({todoId}:{todoId:number}) => {
 
   return (todoDetail ?
       
-    <div className='flex flex-col justify-center items-center w-full h-full gap-4 tablet:gap-7'>
+    <div className='flex flex-col justify-center w-full h-full gap-4 tablet:gap-7'>
       <div className='w-full'>
           <TodoContainer type='detail' additionalClasses={todoDetail.isCompleted? 'bg-violet-100' : 'bg-white'}>
             <Image src={todoDetail.isCompleted ? checkbox_done : checkbox} alt={todoDetail.isCompleted ? 'checked' : 'unchecked'}
@@ -105,7 +105,7 @@ const TodoDetail = ({todoId}:{todoId:number}) => {
           </TodoContainer>
       </div>
 
-      <div className='w-full h-[311px] flex flex-col tablet:flex-row desktop:flex-row desktop-fhd:flex-row gap-4 tablet:gap-6 desktop:gap-6 desktop-fhd:gap-5'>
+      <div className='w-full h-auto flex flex-col tablet:flex-row desktop:flex-row desktop-fhd:flex-row gap-4 tablet:gap-6 desktop:gap-6 desktop-fhd:gap-5'>
           <ImageContainer imageUrl={todoDetail.imageUrl}/>
           <MemoContainer memoText={todoDetail.memo || ''} onMemoChange={onMemoChange}/>
       </div>
