@@ -9,7 +9,7 @@ import TodoContainer from '../components/common/TodoContainer'
 import TodoInput from '../components/common/TodoInput';
 import MemoContainer from '../components/TodoDetail/MemoContainer';
 import ImageContainer from '../components/TodoDetail/ImageContainer';
-import { EditedTodoProps, TodoProps } from '@/store/todoStore';
+import useTodoStore, { EditedTodoProps } from '@/store/todoStore';
 import { useEffect, useState } from 'react';
 import { getTodoDetail } from '@/app/apis/todoApi';
 
@@ -18,11 +18,21 @@ const TodoDetail = ({todoId}:{todoId:number}) => {
   const [todoDetail, setTodoDetail] = useState<EditedTodoProps>(); // id로 얻어온 기존 todo detail
   const [editedTodoDetail, setEditedTodoDetail] = useState<EditedTodoProps>({}as EditedTodoProps); // 수정된 todo detail
 
+  const { todos, updateTodoStore } = useTodoStore((state) => ({
+    todos: state.todos,
+    updateTodoStore: state.updateTodoStore,
+  }));
+  
   useEffect(() => {
     try {
       getTodoDetail(todoId).then((res) => {
-        console.log(res);
-        const { tenantId, ...restTodo } = res; // tenantId 제외하고 newTodo에 저장
+
+        // 기본값이 null이기때문에 요청시 null값 방지용
+        res.imageUrl = res.imageUrl || '';
+        res.memo = res.memo || '';
+
+        const { tenantId, id, ...restTodo } = res; // tenantId, id 제외하고 restTodo로 저장(서버 요청 body 형식에 맞춰)
+    
         setTodoDetail(restTodo);
         setEditedTodoDetail(restTodo); // 수정될 todo도 일단 초기화
       });
@@ -58,13 +68,31 @@ const TodoDetail = ({todoId}:{todoId:number}) => {
     }));
   };
 
+  const onEditBtnClick = async () => {
+    if (window.confirm('수정된 내용을 저장할까요?')) {
+      try {
+        await updateTodoStore(todoId, editedTodoDetail);
+        alert('저장되었습니다!');
+        window.location.pathname = '/';
+      } catch (error) {
+        console.error('Error updating todo:', error);
+        alert('저장 중 오류가 발생했습니다. 다시 시도해 주세요!');
+        window.location.reload();
+      }
+      
+    } else {}
+  }
+
+  const onDeleteBtnClick = () => { }
+
+
 
   return (todoDetail ?
       
   <div className='flex flex-col justify-center items-center w-full h-full bg-orange-200 gap-4 tablet:gap-7'>
       <div className='w-full'>
-          <TodoContainer type='detail' additionalClasses={todoDetail.isCompleted? 'bg-violet-100' : 'bg-white'}>
-          <Image src={todoDetail.isCompleted ? checkbox_done : checkbox} alt={todoDetail.isCompleted ? 'checked' : 'unchecked'}
+          <TodoContainer type='detail' additionalClasses={editedTodoDetail.isCompleted? 'bg-violet-100' : 'bg-white'}>
+          <Image src={editedTodoDetail.isCompleted ? checkbox_done : checkbox} alt={editedTodoDetail.isCompleted ? 'checked' : 'unchecked'}
           onClick={onCheckClick}/>
             <TodoInput text={editedTodoDetail.name || ''} detailPage onChange={onTodoTextChange}/>
           </TodoContainer>
@@ -77,8 +105,8 @@ const TodoDetail = ({todoId}:{todoId:number}) => {
   
 
       <div className='w-full flex justify-center items-center desktop:justify-end desktop:gap-4 desktop-fhd:justify-end desktop-fhd:gap-4 mt-6 gap-2'>
-        <Button text='수정완료' icon={check} variant='lime' purpose='edit' shadow />
-        <Button text='삭제하기' icon={x} variant='rose' purpose='delete' shadow/>
+        <Button text='수정완료' icon={check} variant='lime' purpose='edit' shadow onClick={onEditBtnClick} />
+        <Button text='삭제하기' icon={x} variant='rose' purpose='delete' shadow onClick={onDeleteBtnClick}/>
       </div>
     </div>
     :
