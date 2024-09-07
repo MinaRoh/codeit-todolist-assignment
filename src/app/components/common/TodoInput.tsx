@@ -27,7 +27,7 @@ const TodoInput = ({ text, detailPage, additionalClasses = '', readOnly, onChang
   }
 
   const onClick = () => {
-    if (inputValue === defaultInputText) {
+    if (!detailPage && inputValue === defaultInputText) {
       setInputValue('');
     }
   };
