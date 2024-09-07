@@ -1,8 +1,11 @@
-import { addTodo, getTodo, getTodoDetail } from '@/app/apis/\btodoApi';
+import { addTodo, getTodo, getTodoDetail, updateTodo } from '@/app/apis/todoApi';
 import { create } from 'zustand'
 
-export interface TodoProps {
+export interface TodoProps extends EditedTodoProps {
   id: number;
+}
+
+export interface EditedTodoProps {
   name: string;
   memo: string;
   imageUrl: string;
@@ -15,6 +18,7 @@ type TodoStore = {
   getTodoStore: () => Promise<void>;
   getTodoDetailStore: (todoId: number) => Promise<void>;
   addTodoStore: (name: string) => Promise<void>;
+  updateTodoStore: (id: number, updatedTodo: EditedTodoProps) => Promise<void>;
 
 }
 
@@ -58,7 +62,21 @@ const useTodoStore = create<TodoStore>()((set) => ({
     } catch (error) {
       console.error('Error adding todo:', error);
     }
-  }
+  },
+  updateTodoStore: async (id: number, updatedTodo: EditedTodoProps) => {
+    try {
+      const resJson = await updateTodo(id, updatedTodo);
+      set((state) => {
+        // todos를 순회하며 현재 id와 동일한 todo에 대해 응답으로 받은 업데이트된 투두를 기존의 투두에 덮어쓰기
+        const updatedTodos = state.todos.map((todo) =>
+          todo.id === id ? { ...todo, ...resJson } : todo
+        );
+        return { todos: updatedTodos }
+      })
+    } catch (error) {
+      console.error('Error editing todo:', error);
+    }
+  },
 }));
 
 
