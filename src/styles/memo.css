@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .memo-scrollbar::-webkit-scrollbar {
+    width: 8px;
+		height: 50px;
+  }
+
+  .memo-scrollbar::-webkit-scrollbar-track {
+    background: #fffbeb;  /* amber-50 */
+    border-radius: 4px;
+  }
+
+  .memo-scrollbar::-webkit-scrollbar-thumb {
+    background: #fde68a; /* amber-200 */
+    border-radius: 4px;
+  }
+
+  .memo-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #fbbf24; /* amber-400 */
+  }
+}
+
