@@ -15,8 +15,7 @@ import { getTodoDetail } from '@/app/apis/todoApi';
 
 
 const TodoDetail = ({todoId}:{todoId:number}) => {
-  const [todoDetail, setTodoDetail] = useState<EditedTodoProps>(); // id로 얻어온 기존 todo detail
-  const [editedTodoDetail, setEditedTodoDetail] = useState<EditedTodoProps>({}as EditedTodoProps); // 수정된 todo detail
+  const [todoDetail, setTodoDetail] = useState<EditedTodoProps>({}as EditedTodoProps);
 
   const { updateTodoStore, deleteTodoStore } = useTodoStore((state) => ({
     updateTodoStore: state.updateTodoStore,
@@ -26,15 +25,12 @@ const TodoDetail = ({todoId}:{todoId:number}) => {
   useEffect(() => {
     try {
       getTodoDetail(todoId).then((res) => {
-
         // 기본값이 null이기때문에 요청시 null값 방지용
         res.imageUrl = res.imageUrl || '';
         res.memo = res.memo || '';
 
         const { tenantId, id, ...restTodo } = res; // tenantId, id 제외하고 restTodo로 저장(서버 요청 body 형식에 맞춰)
-    
         setTodoDetail(restTodo);
-        setEditedTodoDetail(restTodo); // 수정될 todo도 일단 초기화
       });
     } catch (err) {
       console.error(err);
@@ -43,27 +39,27 @@ const TodoDetail = ({todoId}:{todoId:number}) => {
 
 
   const onCheckClick = () => {
-    setEditedTodoDetail(prev => ({
+    setTodoDetail(prev => ({
       ...prev, isCompleted: prev.isCompleted ? !prev.isCompleted : true
     }));
   };
 
   const onTodoTextChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
-    setEditedTodoDetail(prev => ({
+    setTodoDetail(prev => ({
       ...prev, name: value
     }));
   };
 
   const onImageUpload = (newImageUrl: string) => {
     // 이미지 업로드 시 이미지 URL 업데이트
-    setEditedTodoDetail(prev => ({
+    setTodoDetail(prev => ({
       ...prev, imageUrl: newImageUrl
     }));
   };
 
   const onMemoChange = (newMemoText: string) => {
-    setEditedTodoDetail(prev => ({
+    setTodoDetail(prev => ({
       ...prev, memo: newMemoText
     }));
   };
@@ -71,7 +67,7 @@ const TodoDetail = ({todoId}:{todoId:number}) => {
   const onEditBtnClick = async () => {
     if (window.confirm('수정된 내용을 저장할까요?')) {
       try {
-        await updateTodoStore(todoId, editedTodoDetail);
+        await updateTodoStore(todoId, todoDetail);
         alert('저장되었습니다!');
         window.location.pathname = '/';
       } catch (error) {
@@ -80,7 +76,7 @@ const TodoDetail = ({todoId}:{todoId:number}) => {
         window.location.reload();
       }
     } else;
-  }
+  };
 
   const onDeleteBtnClick = async () => {
     if (window.confirm('이 할 일을 삭제할까요?')) {
@@ -93,26 +89,25 @@ const TodoDetail = ({todoId}:{todoId:number}) => {
         alert('할일 삭제 중 오류가 발생했습니다. 다시 시도해 주세요!');
         window.location.reload();
       }
-      
     } else;
-  }
+  };
 
 
 
   return (todoDetail ?
       
-  <div className='flex flex-col justify-center items-center w-full h-full bg-orange-200 gap-4 tablet:gap-7'>
+    <div className='flex flex-col justify-center items-center w-full h-full gap-4 tablet:gap-7'>
       <div className='w-full'>
-          <TodoContainer type='detail' additionalClasses={editedTodoDetail.isCompleted? 'bg-violet-100' : 'bg-white'}>
-          <Image src={editedTodoDetail.isCompleted ? checkbox_done : checkbox} alt={editedTodoDetail.isCompleted ? 'checked' : 'unchecked'}
+          <TodoContainer type='detail' additionalClasses={todoDetail.isCompleted? 'bg-violet-100' : 'bg-white'}>
+          <Image src={todoDetail.isCompleted ? checkbox_done : checkbox} alt={todoDetail.isCompleted ? 'checked' : 'unchecked'}
           onClick={onCheckClick}/>
-            <TodoInput text={editedTodoDetail.name || ''} detailPage onChange={onTodoTextChange}/>
+            <TodoInput text={todoDetail.name || ''} detailPage onChange={onTodoTextChange}/>
           </TodoContainer>
       </div>
 
       <div className='w-full h-[311px] flex flex-col tablet:flex-row desktop:flex-row desktop-fhd:flex-row gap-4 tablet:gap-6 desktop:gap-6 desktop-fhd:gap-5'>
           <ImageContainer imageUrl={todoDetail.imageUrl}/>
-          <MemoContainer memoText={editedTodoDetail.memo || ''} onMemoChange={onMemoChange}/>
+          <MemoContainer memoText={todoDetail.memo || ''} onMemoChange={onMemoChange}/>
       </div>
   
 
