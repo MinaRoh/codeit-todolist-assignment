@@ -33,3 +33,20 @@ export const addTodo = async (todo: string) => {
     console.error(err);
   }
 }
+
+export async function getTodoDetail(itemId: number) {
+  try {
+    const res = await fetch(`${BASE_URL}/items/${itemId}`, {
+      method: 'GET',
+      cache: 'no-cache',
+    });
+
+    if (!res.ok) {
+      throw new Error(`res status: ${res.status}`);
+    }
+    return res.json();
+
+  } catch (error) {
+    console.error(error);
+  }
+}

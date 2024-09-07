@@ -1,10 +1,6 @@
 
 .btn-base {
-  @apply flex items-center justify-center font-bold rounded-full border-solid border-2 ;
-}
-
-.btn-long {
-  @apply px-10 py-4 gap-1 h-16; 
+  @apply flex items-center justify-center font-bold rounded-full border-solid border-2;
 }
 
 .btn-shadow {

@@ -1,6 +1,6 @@
 'use client';
 import React, { useEffect, useState } from 'react';
-import { defaultInputText } from '../(todos)/AddTodoContainer';
+import { defaultInputText } from '../Todos/AddTodoContainer';
 
 interface InputProps {
   text: string;

@@ -23,7 +23,7 @@ const TodoList = ({imageLabel, altText, todos, emptyImage, emptyMsg}: TodoListIn
       </div>
       
       {/* 투두리스트영역 */}
-      <div className='flex flex-col items-center gap-3'>
+      <div className='flex flex-col items-center gap-3 w-full'>
         {
           todos.length > 0 ? todos.map((todo) => (
             <Todo key={todo.id} id={todo.id} name={todo.name} isCompleted={todo.isCompleted} />

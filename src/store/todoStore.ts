@@ -1,5 +1,4 @@
-
-import { addTodo, getTodo } from '@/app/apis/\btodoApi';
+import { addTodo, getTodo, getTodoDetail } from '@/app/apis/\btodoApi';
 import { create } from 'zustand'
 
 export interface TodoProps {
@@ -12,17 +11,38 @@ export interface TodoProps {
 
 type TodoStore = {
   todos: TodoProps[];
+  todoDetail: TodoProps;
   getTodoStore: () => Promise<void>;
+  getTodoDetailStore: (todoId: number) => Promise<void>;
   addTodoStore: (name: string) => Promise<void>;
+
 }
 
 const useTodoStore = create<TodoStore>()((set) => ({
   todos: [],
+  todoDetail: {
+    id: 0,
+    name: '',
+    memo: '',
+    imageUrl: '',
+    isCompleted: false,
+    tenantId: '',
+  },
   getTodoStore: async () => {
     try {
       const todos = await getTodo({ pageNum: 1, pageSize: 100 });
       const sortedTodos = todos.sort((a: { id: number; }, b: { id: number; }) => a.id - b.id); // id 작은것부터 보이도록
       set({ todos: sortedTodos });
+    } catch (error) {
+      console.error('Error getting todos:', error);
+    }
+  },
+  getTodoDetailStore: async (todoId: number) => {
+    try {
+      const resJson = await getTodoDetail(todoId);
+      const { tenantId, ...todoDetail } = resJson; // tenantId 제외하고 newTodo에 저장
+
+      set({ todoDetail });
     } catch (error) {
       console.error('Error getting todos:', error);
     }

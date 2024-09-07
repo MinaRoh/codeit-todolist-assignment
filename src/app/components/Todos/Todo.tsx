@@ -3,6 +3,7 @@ import TodoContainer from '../common/TodoContainer';
 import TodoInput from '../common/TodoInput';
 import checkbox from '../../../../public/icons/checkbox/Property 1=Default.svg';
 import checkbox_done from '../../../../public/icons/checkbox_done/Property 1=Frame 2610233.svg';
+import Link from 'next/link';
 
 
 interface SimpleTodoProps {
@@ -19,11 +20,13 @@ const Todo = ({ id, name, isCompleted }: SimpleTodoProps) => {
 
 
   return (
-    <TodoContainer type='list' additionalClasses={additionalClasses}>
-      <Image src={checkImg} alt={checkImgAlt} width={32} height={32} />
-      <p>{id}</p>
-      <TodoInput text={name} detailPage={false} />
-    </TodoContainer>
+    <Link href={`/${id}`} className='w-full'>
+      <TodoContainer type='list' additionalClasses={additionalClasses}>
+        <Image src={checkImg} alt={checkImgAlt} width={32} height={32} />
+        <p>{id}</p>
+        <TodoInput text={name} detailPage={false} />
+      </TodoContainer>
+    </Link>
   )
 }
 
