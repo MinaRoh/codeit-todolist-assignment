@@ -46,7 +46,7 @@ export const getTodoDetail = async (itemId: number) => {
       alert('해당 할 일이 없습니다!');
       window.location.pathname = '/';
     }
-    if (!res.ok) {
+    else if (!res.ok) {
       alert('해당 할 일을 가져오는 것에 실패했습니다!');
       window.location.pathname = '/';
       throw new Error(`res status: ${res.status}`);
