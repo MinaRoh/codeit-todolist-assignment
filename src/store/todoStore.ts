@@ -1,4 +1,4 @@
-import { addTodo, deleteTodo, getTodo, getTodoDetail, updateTodo } from '@/app/apis/todoApi';
+import { addTodo, deleteTodo, getTodo, getTodoDetail, updateTodo } from '@/apis/todoApi';
 import { create } from 'zustand'
 
 export interface TodoProps extends EditedTodoProps {

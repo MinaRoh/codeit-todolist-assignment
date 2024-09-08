@@ -1,11 +1,11 @@
 'use client';
 import Image from 'next/image';
-import ImageIcon from '../../../../public/images/ic/img.svg';
-import Plus from '../../../../public/icons/plus/Property 1=Variant2.svg';
-import Edit from '../../../../public/icons/edit/edit.svg';
+import ImageIcon from '../../../public/images/ic/img.svg';
+import Plus from '../../../public/icons/plus/Property 1=Variant2.svg';
+import Edit from '../../../public/icons/edit/edit.svg';
 import Button from '../common/Button';
 import { createRef, useState } from 'react';
-import { uploadImage } from '@/app/apis/imageApi';
+import { uploadImage } from '@/apis/imageApi';
 
 interface ImageContainerProps {
   imageUrl: string;

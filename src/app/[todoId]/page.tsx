@@ -1,4 +1,4 @@
-import TodoDetail from './TodoDetail';
+import TodoDetail from '../../components/TodoDetail/TodoDetail';
 
 interface params{
   params: {

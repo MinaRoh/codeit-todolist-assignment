@@ -1,8 +1,8 @@
 import Image from 'next/image';
 import TodoContainer from '../common/TodoContainer';
 import TodoInput from '../common/TodoInput';
-import checkbox from '../../../../public/icons/checkbox/Property 1=Default.svg';
-import checkbox_done from '../../../../public/icons/checkbox_done/Property 1=Frame 2610233.svg';
+import checkbox from '../../../public/icons/checkbox/Property 1=Default.svg';
+import checkbox_done from '../../../public/icons/checkbox_done/Property 1=Frame 2610233.svg';
 import Link from 'next/link';
 import useTodoStore, { TodoProps } from '@/store/todoStore';
 

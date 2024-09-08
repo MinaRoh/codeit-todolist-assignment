@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
-import './globals.css';
-import Gnb from '../app/components/GNB';
+import '../styles/globals.css';
+import Gnb from '../components/GNB';
 
 export const metadata: Metadata = {
   title: 'Do it',

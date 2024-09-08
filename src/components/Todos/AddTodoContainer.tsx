@@ -2,7 +2,7 @@
 import Button from '../common/Button'
 import TodoContainer from '../common/TodoContainer'
 import TodoInput from '../common/TodoInput'
-import plus_variant from '../../../../public/icons/plus_variant/Property 1=plus.svg';
+import plus_variant from '../../../public/icons/plus_variant/Property 1=plus.svg';
 import useTodoStore from '@/store/todoStore';
 import { useState } from 'react';
 

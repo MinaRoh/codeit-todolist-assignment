@@ -1,5 +1,5 @@
-import TodoListContainer from './components/Todos/TodoListContainer';
-import AddTodoContainer from './components/Todos/AddTodoContainer';
+import TodoListContainer from '../../components/Todos/TodoListContainer';
+import AddTodoContainer from '../../components/Todos/AddTodoContainer';
 
 
 export default function TodoListPage() {

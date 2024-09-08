@@ -1,17 +1,17 @@
 'use client';
 import Image from 'next/image'
-import Button from '../components/common/Button';
+import Button from '../common/Button';
 import check from '../../../public/icons/check/check.svg'
 import checkbox_done from '../../../public/icons/checkbox_done/Property 1=Frame 2610233.svg';
 import checkbox from '../../../public/icons/checkbox/Property 1=Default.svg';
 import x from '../../../public/icons/x/X.svg';
-import TodoContainer from '../components/common/TodoContainer'
-import TodoInput from '../components/common/TodoInput';
-import MemoContainer from '../components/TodoDetail/MemoContainer';
-import ImageContainer from '../components/TodoDetail/ImageContainer';
+import TodoContainer from '../common/TodoContainer'
+import TodoInput from '../common/TodoInput';
+import MemoContainer from './MemoContainer';
+import ImageContainer from './ImageContainer';
 import useTodoStore, { EditedTodoProps } from '@/store/todoStore';
 import { useEffect, useState } from 'react';
-import { getTodoDetail } from '@/app/apis/todoApi';
+import { getTodoDetail } from '@/apis/todoApi';
 
 
 const TodoDetail = ({todoId}:{todoId:number}) => {
