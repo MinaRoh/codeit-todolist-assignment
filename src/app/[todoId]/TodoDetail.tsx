@@ -52,7 +52,6 @@ const TodoDetail = ({todoId}:{todoId:number}) => {
   };
 
   const onImageUpload = (newImageUrl: string) => {
-    // 이미지 업로드 시 이미지 URL 업데이트
     setTodoDetail(prev => ({
       ...prev, imageUrl: newImageUrl
     }));
@@ -106,7 +105,7 @@ const TodoDetail = ({todoId}:{todoId:number}) => {
       </div>
 
       <div className='w-full h-auto flex flex-col tablet:flex-row desktop:flex-row desktop-fhd:flex-row gap-4 tablet:gap-6 desktop:gap-6 desktop-fhd:gap-5'>
-        <ImageContainer todoId={todoId} imageUrl={todoDetail.imageUrl}/>
+        <ImageContainer imageUrl={todoDetail.imageUrl || ''} onImageUpload={onImageUpload} />
         <MemoContainer memoText={todoDetail.memo || ''} onMemoChange={onMemoChange}/>
       </div>
   
