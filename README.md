@@ -1,9 +1,20 @@
 # ✅ Todolist
 
+![image](https://github.com/user-attachments/assets/4acb61ca-c615-482b-a02f-e46274c87cd2)
+
 할 일 목록을 관리하는 To Do 서비스입니다.
+
 (코드잇 스프린트 프론트엔드 단기심화 4기 사전과제 todolist 입니다.)
 
+
 배포 주소 👉 https://codeit-todolist-assignment.vercel.app/
+
+
+|할 일 목록 페이지 | 할 일 상세 페이지|
+|---|---|
+|![image](https://github.com/user-attachments/assets/86923187-1b6e-42fc-9d84-af50aa749344)|![image](https://github.com/user-attachments/assets/d71bddbe-3b63-4887-8577-3b30ee873f1d)|
+
+
 
 
 ## 1. 프로젝트 개요
