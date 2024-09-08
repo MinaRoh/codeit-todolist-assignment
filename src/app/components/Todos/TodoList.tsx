@@ -16,14 +16,14 @@ interface TodoListInfo {
 const TodoList = ({imageLabel, altText, todos, emptyImage, emptyMsg}: TodoListInfo) => {
 
   return (
-    <ul className='flex flex-col w-full gap-4'>
+    <div className='flex flex-col w-full gap-4'>
       {/* 라벨영역 */}
       <div className='flex justify-start'>
-        <Image src={imageLabel} alt={altText} />
+          <Image src={imageLabel} alt={altText} />
       </div>
       
       {/* 투두리스트영역 */}
-      <li className='flex flex-col items-center gap-3 w-full'>
+      <div className='flex flex-col items-center gap-3 w-full'>
         {
           todos.length > 0 ? todos.map((todo) => (
             <Todo key={todo.id} {...todo} />
@@ -38,8 +38,8 @@ const TodoList = ({imageLabel, altText, todos, emptyImage, emptyMsg}: TodoListIn
               </p> 
           </div>
         }
-      </li>
-    </ul>
+      </div>
+    </div>
   );
 };
 

@@ -38,8 +38,7 @@ const TodoInput = ({ text, detailPage, additionalClasses = '', readOnly, onChang
     ].join(' ');
 
   return (
-    <input type='text' value={inputValue} className={todoInputClasses} onChange={onTodoInputChange}
-      onClick={onClick} readOnly={readOnly} aria-label={`할 일 ${text}`} />
+    <input type='text' value={inputValue} className={todoInputClasses} onChange={onTodoInputChange} onClick={onClick} readOnly={readOnly} />
   );
 };
 
