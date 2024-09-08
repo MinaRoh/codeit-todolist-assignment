@@ -1,6 +1,6 @@
 
 .todo-contianer-base {
-  @apply flex items-center gap-4 w-full border-slate-900 h-12;
+  @apply flex items-center gap-4 border-slate-900 h-12;
 }
 
 .todo-container-list {
@@ -12,5 +12,5 @@
 }
 
 .todo-container-addtodo {
-  @apply w-full pl-5 px-6 py-4 border rounded-full drop-shadow-[4px_4px_rgb(15,23,42)] bg-slate-100 ;
+  @apply px-6 py-4 border rounded-full drop-shadow-[4px_4px_rgb(15,23,42)] bg-slate-100 ;
 }

@@ -3,9 +3,9 @@ import TodoLabel from '../../../../public/images/todo/todo.svg';
 import DoneLabel from '../../../../public/images/done/done.svg';
 import EmptyTodo_small from '../../../../public/images/empty/todo_small/Type=todo, Size=Small.svg';  
 import EmptyDone_small from '../../../../public/images/empty/done_small/Type=Done, Size=Small.svg';
-import TodoList from './TodoList';
 import useTodoStore, { TodoProps } from '@/store/todoStore';
 import { useEffect, useState } from 'react';
+import TodoList from './TodoList';
 
 /** fetch로 받아와서 todo, done에 따라 구별해서 TodoList에 전달.  */
 const TodoListContainer = () => {
@@ -46,7 +46,7 @@ const TodoListContainer = () => {
       emptyImage: EmptyDone_small,
       emptyMsg: '아직 다 한 일이 없어요.\n해야 할 일을 체크해보세요!'
     },
-    ];
+  ];
   
 
   return (

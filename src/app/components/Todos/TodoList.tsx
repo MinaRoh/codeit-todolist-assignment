@@ -23,10 +23,10 @@ const TodoList = ({imageLabel, altText, todos, emptyImage, emptyMsg}: TodoListIn
       </div>
       
       {/* 투두리스트영역 */}
-      <div className='flex flex-col items-center gap-3'>
+      <div className='flex flex-col items-center gap-3 w-full'>
         {
           todos.length > 0 ? todos.map((todo) => (
-            <Todo key={todo.id} id={todo.id} name={todo.name} isCompleted={todo.isCompleted} />
+            <Todo key={todo.id} {...todo} />
           ))
             :
             // todo 혹은 done이 하나도 없다면 empty 이미지 표시

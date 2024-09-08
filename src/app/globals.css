@@ -12,6 +12,7 @@
 @import '../styles/button.css';
 @import '../styles/input.css';
 @import '../styles/container.css';
+@import '../styles/memo.css';
 
 body  {
 		font-family: 'NanumSquare', sans-serif !important;
