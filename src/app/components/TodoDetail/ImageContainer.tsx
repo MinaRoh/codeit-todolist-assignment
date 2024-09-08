@@ -61,7 +61,8 @@ const ImageContainer = ({ imageUrl, onImageUpload }: ImageContainerProps) => {
   };
 
 return (
-  <div className='relative flex flex-1 justify-center items-center min-w-96 min-h-[311px] bg-slate-50 rounded-3xl border-dashed border-2 border-slate-300'>
+  <div className={`relative flex flex-1 justify-center items-center min-w-96 min-h-[311px] bg-slate-50 rounded-3xl 
+    ${isImageExist() ? 'border-none' : 'border-dashed border-2 border-slate-300'}`}>
     <div className='flex justify-center items-center'>
       {isImageExist() ? (
         <Image src={imageUrl || newImageUrl} alt='uploaded image'
