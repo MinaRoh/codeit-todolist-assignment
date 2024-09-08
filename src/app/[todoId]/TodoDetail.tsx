@@ -16,6 +16,8 @@ import { getTodoDetail } from '@/app/apis/todoApi';
 
 const TodoDetail = ({todoId}:{todoId:number}) => {
   const [todoDetail, setTodoDetail] = useState<EditedTodoProps>({}as EditedTodoProps);
+  const [prevTodoDetail, setPrevTodoDetail] = useState<EditedTodoProps>({} as EditedTodoProps);
+  const [hasChanged, setHasChanged] = useState<Boolean>(false);
 
   const { updateTodoStore, deleteTodoStore } = useTodoStore((state) => ({
     updateTodoStore: state.updateTodoStore,
@@ -30,6 +32,7 @@ const TodoDetail = ({todoId}:{todoId:number}) => {
         res.memo = res.memo || '';
 
         const { tenantId, id, ...restTodo } = res; // tenantId, id 제외하고 restTodo로 저장(서버 요청 body 형식에 맞춰)
+        setPrevTodoDetail(restTodo);
         setTodoDetail(restTodo);
       });
     } catch (err) {
@@ -37,30 +40,26 @@ const TodoDetail = ({todoId}:{todoId:number}) => {
     }
   }, []);
 
+  useEffect(() => {
+    // prev와 비교해 변경된 부분이 있는지 확인
+    setHasChanged(JSON.stringify(prevTodoDetail) !== JSON.stringify(todoDetail));
+  }, [todoDetail, prevTodoDetail]);
 
   const onCheckClick = () => {
-    setTodoDetail(prev => ({
-      ...prev, isCompleted: prev.isCompleted ? !prev.isCompleted : true
-    }));
+    setTodoDetail(prev => ({...prev, isCompleted: prev.isCompleted ? !prev.isCompleted : true}));
   };
 
   const onTodoTextChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
-    setTodoDetail(prev => ({
-      ...prev, name: value
-    }));
+    setTodoDetail(prev => ({...prev, name: value}));
   };
 
   const onImageUpload = (newImageUrl: string) => {
-    setTodoDetail(prev => ({
-      ...prev, imageUrl: newImageUrl
-    }));
+    setTodoDetail(prev => ({...prev, imageUrl: newImageUrl}));
   };
 
   const onMemoChange = (newMemoText: string) => {
-    setTodoDetail(prev => ({
-      ...prev, memo: newMemoText
-    }));
+    setTodoDetail(prev => ({...prev, memo: newMemoText}));
   };
 
   const onEditBtnClick = async () => {
@@ -94,7 +93,6 @@ const TodoDetail = ({todoId}:{todoId:number}) => {
 
 
   return (todoDetail ?
-      
     <div className='flex flex-col justify-center w-full h-full gap-4 tablet:gap-7'>
       <div className='w-full'>
           <TodoContainer type='detail' additionalClasses={todoDetail.isCompleted? 'bg-violet-100' : 'bg-white'}>
@@ -111,8 +109,8 @@ const TodoDetail = ({todoId}:{todoId:number}) => {
   
 
       <div className='w-full flex justify-center items-center desktop:justify-end desktop:gap-4 desktop-fhd:justify-end desktop-fhd:gap-4 mt-6 gap-2'>
-        <Button text='수정완료' icon={check} variant='lime' purpose='edit' shadow onClick={onEditBtnClick} />
-        <Button text='삭제하기' icon={x} variant='rose' purpose='delete' shadow onClick={onDeleteBtnClick}/>
+        <Button text='수정 완료' icon={check} variant={hasChanged ? 'lime' : 'slate'} purpose='edit' border shadow onClick={onEditBtnClick} />
+        <Button text='삭제하기' icon={x} variant='rose' purpose='delete' border shadow onClick={onDeleteBtnClick}/>
       </div>
     </div>
     :

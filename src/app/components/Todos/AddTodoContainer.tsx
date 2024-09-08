@@ -36,8 +36,8 @@ const AddTodoContainer = () => {
       <TodoContainer type='addtodo' additionalClasses='flex-grow'>
         <TodoInput text={inputText} additionalClasses='text-slate-500' onChange={onChange} />
       </TodoContainer>
-      <Button type='submit' text='추가하기' icon={plus_variant} variant='violet' purpose='addtodo' shadow
-        additionalClasses='w-12 h-12 tablet:w-40 tablet:h-12 desktop:w-40 desktop:h-12 desktop:gap-1 desktop-fhd:w-40 desktop-fhd:h-12 desktop-fhd:gap-1'
+      <Button type='submit' text='추가하기' icon={plus_variant} variant='violet' purpose='addtodo' border shadow
+        additionalClasses='w-12 h-12 tablet:w-40 tablet:h-12 tablet:gap-1 desktop:w-40 desktop:h-12 desktop:gap-1 desktop-fhd:w-40 desktop-fhd:h-12 desktop-fhd:gap-1'
       textAdditionalClasses='hidden tablet:inline desktop:inline'/>
     </form>
   )
