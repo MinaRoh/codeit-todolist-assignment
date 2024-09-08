@@ -7,7 +7,7 @@ import Link from 'next/link';
 import useTodoStore, { TodoProps } from '@/store/todoStore';
 
 const Todo = (todo: TodoProps) => {
-  const { updateTodoIsCompletedStore } = useTodoStore((state) => ({updateTodoIsCompletedStore: state.updateTodoIsCompletedStore}));
+  const updateTodoIsCompletedStore = useTodoStore((state) => state.updateTodoIsCompletedStore);
   
   const checkImg = todo.isCompleted ? checkbox_done : checkbox;
   const checkImgAlt = todo.isCompleted ? 'is done' : 'is not done';

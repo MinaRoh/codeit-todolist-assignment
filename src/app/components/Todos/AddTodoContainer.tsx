@@ -9,7 +9,7 @@ import { useState } from 'react';
 export const defaultInputText = '할 일을 입력해 주세요';
 
 const AddTodoContainer = () => {
-  const addTodoStore = useTodoStore((state: any) => state.addTodoStore);
+  const addTodoStore = useTodoStore((state) => state.addTodoStore);
   const [inputText, setInputText] = useState(defaultInputText);
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {

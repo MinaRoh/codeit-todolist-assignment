@@ -26,8 +26,6 @@ type TodoStore = {
   updateTodoStore: (id: number, updatedTodo: EditedTodoProps) => Promise<void>;
   updateTodoIsCompletedStore: (id: number, isCompleted: boolean) => Promise<void>;
   deleteTodoStore: (id: number) => Promise<void>;
-
-
 }
 
 const useTodoStore = create<TodoStore>()((set) => ({

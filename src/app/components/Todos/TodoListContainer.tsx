@@ -27,8 +27,8 @@ const TodoListContainer = () => {
   }, []);
 
   useEffect(() => {
-    setTodosToDo(todos?.filter((todo: any) => !todo.isCompleted));
-    setTodosDone(todos?.filter((todo: any) => todo.isCompleted));
+    setTodosToDo(todos?.filter((todo: TodoProps) => !todo.isCompleted));
+    setTodosDone(todos?.filter((todo: TodoProps) => todo.isCompleted));
   }, [todos]);
   
   const TodoListInfo = [
