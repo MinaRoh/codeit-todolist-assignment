@@ -107,7 +107,7 @@ const TodoDetail = ({todoId}:{todoId:number}) => {
 
       <div className='w-full h-auto flex flex-col tablet:flex-row desktop:flex-row desktop-fhd:flex-row gap-4 tablet:gap-6 desktop:gap-6 desktop-fhd:gap-5'>
         <ImageContainer todoId={todoId} imageUrl={todoDetail.imageUrl}/>
-          <MemoContainer memoText={todoDetail.memo || ''} onMemoChange={onMemoChange}/>
+        <MemoContainer memoText={todoDetail.memo || ''} onMemoChange={onMemoChange}/>
       </div>
   
 

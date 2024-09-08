@@ -15,7 +15,7 @@ const MemoContainer = ({ memoText, onMemoChange }: MemoContainerProps) => {
   };
   
   return (
-    <div className='flex flex-col w-full h-full items-center rounded-3xl overflow-y-auto bg-memo bg-cover bg-center bg-no-repeat px-2 py-4 memo-scrollbar'>
+    <div className='flex flex-1 flex-col w-full h-full items-center rounded-3xl overflow-y-auto bg-memo bg-cover bg-center bg-no-repeat px-2 py-4 memo-scrollbar'>
       <div className='flex justify-center h-auto m-4'>
         <p className='text-amber-800 font-extrabold text-base'>Memo</p>
       </div>

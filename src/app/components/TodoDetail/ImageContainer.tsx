@@ -1,14 +1,15 @@
 'use client';
-import Image from 'next/image';
+import Image, { StaticImageData } from 'next/image';
 import ImageIcon from '../../../../public/images/ic/img.svg';
 import Plus from '../../../../public/icons/plus/Property 1=Variant2.svg';
 import Button from '../common/Button';
-import { createRef } from 'react';
+import { createRef, useState } from 'react';
 import { uploadImage } from '@/app/apis/imageApi';
 
 const ImageContainer = ({ todoId, imageUrl }: { todoId: number, imageUrl: string }) => {
   const fileInputRef = createRef<HTMLInputElement>(); // Image component 내부 대신 create
-
+  const [newImageUrl, setNewImageUrl] = useState<string>('');
+  
   const onFileChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
 
@@ -25,11 +26,12 @@ const ImageContainer = ({ todoId, imageUrl }: { todoId: number, imageUrl: string
       }
 
       const formData = new FormData();
-      formData.append('image', file)
+      formData.append('image', file);
 
       try {
         const res = await uploadImage(formData);
         // res.url로 string type 주소 받아 사용하기
+        setNewImageUrl(res.url);
       } catch (err) {
         console.error('error uploading image:', err);
       }
@@ -41,10 +43,13 @@ const ImageContainer = ({ todoId, imageUrl }: { todoId: number, imageUrl: string
   };
 
 return (
-  <div className='relative flex justify-center items-center min-w-96 h-80 bg-slate-50 rounded-3xl border-dashed border-2 border-slate-300'>
+  <div className='relative flex flex-1 justify-center items-center min-w-96 min-h-[311px] bg-slate-50 rounded-3xl border-dashed border-2 border-slate-300'>
     <div className='flex justify-center items-center'>
-      {imageUrl ? (
-        <>이미지 주소 가져오기</>
+      {imageUrl || newImageUrl ? (
+        <Image src={imageUrl || newImageUrl} alt='uploaded image'
+          className='object-cover rounded-lg'
+          layout='fill'
+        />
       ) : (
         <Image src={ImageIcon} alt='empty image icon' width={64} height={64} />
       )}
