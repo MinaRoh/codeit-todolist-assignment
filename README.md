@@ -3,6 +3,8 @@
 할 일 목록을 관리하는 To Do 서비스입니다.
 (코드잇 스프린트 프론트엔드 단기심화 4기 사전과제 todolist 입니다.)
 
+배포 주소 👉 https://codeit-todolist-assignment.vercel.app/
+
 
 ## 1. 프로젝트 개요
 
@@ -19,7 +21,7 @@
 ![image](https://github.com/user-attachments/assets/207682f4-83aa-45d2-bbb5-4bf349d7a848)
 
 
-  - 새로운 기능을 개발할 때 마다 이슈를 작성하고, 이슈 번호에 맞게 브랜치를 생성해 main과 분리하여 개발 후 pr을 통해 merge했습니다.
+  - 새로운 기능을 개발할 때 마다 이슈를 작성하고, 이슈 번호에 맞게 브랜치를 생성해 main과 분리하여 개발 후 pull request을 통해 merge했습니다.
     
 ![image](https://github.com/user-attachments/assets/3994e1c6-2e74-4f5d-8ebb-55033de0c59a)
 ![image](https://github.com/user-attachments/assets/fcaecbbb-25a7-4e11-8e1b-d9bf0d36ff2c)
