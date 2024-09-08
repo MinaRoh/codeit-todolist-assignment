@@ -19,11 +19,11 @@ const AddTodoContainer = () => {
 
   const todoSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (inputText.trim()) { // trim 후 truth값을 가지면(빈 값이 아니면) 실행
+    if (inputText.trim() && inputText !== defaultInputText) { // trim 후 빈 값이 아니면서 기본 텍스트가 아니라면 할 일 추가
       addNewTodo(inputText).then(() => {
-        setInputText(defaultInputText); // 입력창 default로 초기화
+        setInputText(defaultInputText); // 입력창 defaultText로 초기화
       });
-    }
+    } else;
   }
 
   const addNewTodo = async (todo: string) => {
