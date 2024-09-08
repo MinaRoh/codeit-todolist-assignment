@@ -1,4 +1,4 @@
-import { addTodo, deleteTodo, getTodo, getTodoDetail, updateTodo } from '@/app/apis/todoApi';
+import { addTodo, deleteTodo, getTodo, getTodoDetail, updateTodo } from '@/apis/todoApi';
 import { create } from 'zustand'
 
 export interface TodoProps extends EditedTodoProps {
@@ -26,8 +26,6 @@ type TodoStore = {
   updateTodoStore: (id: number, updatedTodo: EditedTodoProps) => Promise<void>;
   updateTodoIsCompletedStore: (id: number, isCompleted: boolean) => Promise<void>;
   deleteTodoStore: (id: number) => Promise<void>;
-
-
 }
 
 const useTodoStore = create<TodoStore>()((set) => ({

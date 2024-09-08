@@ -27,6 +27,7 @@ export const addTodo = async (todo: string) => {
       body: JSON.stringify({ name: todo }),
     });
     if (!res.ok) {
+      alert('할 일을 추가하는 것에 실패했습니다!');
       throw new Error(`res status: ${res.status}`);
     }
     return res.json();
@@ -41,7 +42,13 @@ export const getTodoDetail = async (itemId: number) => {
       method: 'GET',
     });
 
-    if (!res.ok) {
+    if (res.status === 404) {
+      alert('해당 할 일이 없습니다!');
+      window.location.pathname = '/';
+    }
+    else if (!res.ok) {
+      alert('해당 할 일을 가져오는 것에 실패했습니다!');
+      window.location.pathname = '/';
       throw new Error(`res status: ${res.status}`);
     }
     return res.json();
@@ -62,6 +69,7 @@ export const updateTodo = async (itemId: number, updatedTodo: UpdateTodoProps) =
       body: JSON.stringify(updatedTodo),
     });
     if (!res.ok) {
+      alert('할 일 수정에 실패했습니다!');
       throw new Error(`res status: ${res.status}`);
     }
     return res.json();
@@ -77,6 +85,7 @@ export const deleteTodo = async (itemId: number) => {
       method: 'DELETE',
     });
     if (!res.ok) {
+      alert('할 일 삭제에 실패했습니다!');
       throw new Error(`res status: ${res.status}`);
     }
     return res.json();

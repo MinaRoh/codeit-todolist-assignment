@@ -9,10 +9,10 @@
   }
 }
 
-@import '../styles/button.css';
-@import '../styles/input.css';
-@import '../styles/container.css';
-@import '../styles/memo.css';
+@import './button.css';
+@import './input.css';
+@import './container.css';
+@import './memo.css';
 
 body  {
 		font-family: 'NanumSquare', sans-serif !important;

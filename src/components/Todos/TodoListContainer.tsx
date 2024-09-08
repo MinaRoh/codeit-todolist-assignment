@@ -1,8 +1,8 @@
 'use client';
-import TodoLabel from '../../../../public/images/todo/todo.svg';
-import DoneLabel from '../../../../public/images/done/done.svg';
-import EmptyTodo_small from '../../../../public/images/empty/todo_small/Type=todo, Size=Small.svg';  
-import EmptyDone_small from '../../../../public/images/empty/done_small/Type=Done, Size=Small.svg';
+import TodoLabel from '../../../public/images/todo/todo.svg';
+import DoneLabel from '../../../public/images/done/done.svg';
+import EmptyTodo_small from '../../../public/images/empty/todo_small/Type=todo, Size=Small.svg';  
+import EmptyDone_small from '../../../public/images/empty/done_small/Type=Done, Size=Small.svg';
 import useTodoStore, { TodoProps } from '@/store/todoStore';
 import { useEffect, useState } from 'react';
 import TodoList from './TodoList';
@@ -27,8 +27,8 @@ const TodoListContainer = () => {
   }, []);
 
   useEffect(() => {
-    setTodosToDo(todos?.filter((todo: any) => !todo.isCompleted));
-    setTodosDone(todos?.filter((todo: any) => todo.isCompleted));
+    setTodosToDo(todos?.filter((todo: TodoProps) => !todo.isCompleted));
+    setTodosDone(todos?.filter((todo: TodoProps) => todo.isCompleted));
   }, [todos]);
   
   const TodoListInfo = [
