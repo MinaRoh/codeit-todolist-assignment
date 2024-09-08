@@ -51,11 +51,11 @@ const TodoListContainer = () => {
 
   return (
     // filteredList: todos.isCompleted 상태에 따라 todo와 done list를 구별하여(TodoListInfo) Todo, Done 의 순서로 해당 배열을 전달한다.
-    <div className='flex flex-col w-full gap-12 desktop:flex-row px-6'>
+    <section className='flex flex-col w-full gap-12 desktop:flex-row px-6'>
       {TodoListInfo.map((filteredList) => (
         <TodoList key={filteredList.altText} {...filteredList} />
       ))}
-    </div>
+    </section>
   )
 }
 

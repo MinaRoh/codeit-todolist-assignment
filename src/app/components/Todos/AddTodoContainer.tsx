@@ -8,6 +8,7 @@ import { useState } from 'react';
 
 export const defaultInputText = '할 일을 입력해 주세요';
 
+/** 할 일을 추가할 수 있는 입력창과 추가 버튼이 있는 영역  */
 const AddTodoContainer = () => {
   const addTodoStore = useTodoStore((state: any) => state.addTodoStore);
   const [inputText, setInputText] = useState(defaultInputText);
